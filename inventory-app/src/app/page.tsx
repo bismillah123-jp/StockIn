@@ -1,6 +1,8 @@
-import type { PageProps } from 'next';
-
-export default function LoginPage({ searchParams }: PageProps) {
+export default function LoginPage({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const message = Array.isArray(searchParams?.message)
     ? searchParams.message.join(' ')
     : searchParams?.message;
@@ -12,6 +14,8 @@ export default function LoginPage({ searchParams }: PageProps) {
           Inventory Login
         </h1>
         <form
+          action="/api/login" // Pastikan action-nya bener ya, ini contoh
+          method="POST"
           className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground"
         >
           <label className="text-md" htmlFor="email">
