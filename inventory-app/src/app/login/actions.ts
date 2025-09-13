@@ -15,7 +15,7 @@ export async function login(formData: FormData) {
   });
 
   if (error) {
-    return redirect('/login?message=Could not authenticate user');
+    return redirect('/?message=Could not authenticate user');
   }
 
   revalidatePath('/', 'layout');
@@ -25,5 +25,7 @@ export async function login(formData: FormData) {
 export async function logout() {
   const supabase = createClient();
   await supabase.auth.signOut();
-  redirect('/login');
+  // Redirect to the login page (root) after logout
+  redirect('/');
 }
+
