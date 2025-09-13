@@ -63,14 +63,16 @@ export async function addStockEntry(formData: FormData) {
 
   // Basic validation
   if (!rawFormData.date || !rawFormData.location || !rawFormData.brand || !rawFormData.model) {
-    return { error: 'Required fields are missing.' };
+    // Redirect back to the form with an error message
+    return redirect('/input-stock?message=Required fields are missing.');
   }
 
   const { error } = await supabase.from('stock_entries').insert([rawFormData]);
 
   if (error) {
     console.error('Error adding stock entry:', error);
-    return { error: 'Could not add stock entry.' };
+    // Redirect back to the form with an error message
+    return redirect(`/input-stock?message=Could not add stock entry: ${error.message}`);
   }
 
   revalidatePath('/dashboard', 'layout');
