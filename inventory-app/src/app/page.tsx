@@ -1,9 +1,7 @@
 type LoginPageProps = {
-  params: { [key: string]: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+import type { PageProps } from 'next'; // Impor tipe PageProps
 
-export default function LoginPage({ searchParams }: LoginPageProps) {
+export default function LoginPage({ searchParams }: PageProps) {
   const message = Array.isArray(searchParams.message)
     ? searchParams.message.join(' ')
     : searchParams.message;
