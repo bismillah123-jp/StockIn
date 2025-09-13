@@ -1,8 +1,10 @@
 import { login } from './login/actions';
 
 export default function LoginPage({
+  params,
   searchParams,
 }: {
+  params: { [key: string]: string | string[] | undefined };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   return (
