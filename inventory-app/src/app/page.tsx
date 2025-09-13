@@ -1,3 +1,5 @@
+import { login } from './login/actions';
+
 export default function LoginPage({
   searchParams,
 }: {
@@ -14,8 +16,7 @@ export default function LoginPage({
           Inventory Login
         </h1>
         <form
-          action="/api/login" // Pastikan action-nya bener ya, ini contoh
-          method="POST"
+          action={login}
           className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground"
         >
           <label className="text-md" htmlFor="email">
