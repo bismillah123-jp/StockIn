@@ -1,7 +1,15 @@
 import { login } from './login/actions';
 
-export default function LoginPage(props: any) {
-  const { searchParams } = props;
+type LoginPageProps = {
+  params: { [key: string]: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function LoginPage({ searchParams }: LoginPageProps) {
+  const message = Array.isArray(searchParams.message)
+    ? searchParams.message.join(' ')
+    : searchParams.message;
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
       <div className="w-full max-w-sm rounded-lg bg-gray-800 p-8 shadow-lg">
@@ -34,9 +42,9 @@ export default function LoginPage(props: any) {
           <button className="rounded-md bg-purple-600 px-4 py-2 text-white transition hover:bg-purple-700">
             Sign In
           </button>
-          {searchParams?.message && (
+          {message && (
             <p className="mt-4 p-4 text-center text-red-400 bg-red-900/20 rounded-md">
-              {searchParams.message}
+              {message}
             </p>
           )}
         </form>
