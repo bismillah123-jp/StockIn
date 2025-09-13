@@ -1,13 +1,15 @@
 import { login } from './login/actions';
 
-export default function LoginPage({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
-  const message = Array.isArray(searchParams?.message)
-    ? searchParams.message.join(' ')
-    : searchParams?.message;
+// Define a more specific type for the page props
+type LoginPageProps = {
+  searchParams?: {
+    message?: string;
+  };
+};
+
+export default function LoginPage({ searchParams }: LoginPageProps) {
+  // We can simplify this now since we know `message` is a string
+  const message = searchParams?.message;
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
@@ -51,3 +53,4 @@ export default function LoginPage({
     </div>
   );
 }
+
