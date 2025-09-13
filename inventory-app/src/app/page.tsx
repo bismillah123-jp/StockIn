@@ -3,7 +3,7 @@ import { login } from './login/actions';
 export default function LoginPage({
   searchParams,
 }: {
-  searchParams: { message: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
