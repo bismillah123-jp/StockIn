@@ -1,12 +1,7 @@
 import { login } from './login/actions';
 
-export default function LoginPage({
-  params,
-  searchParams,
-}: {
-  params: { [key: string]: string | string[] | undefined };
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+export default function LoginPage(props: any) {
+  const { searchParams } = props;
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
       <div className="w-full max-w-sm rounded-lg bg-gray-800 p-8 shadow-lg">
