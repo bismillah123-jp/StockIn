@@ -1,5 +1,3 @@
-import { login } from './login/actions';
-
 type LoginPageProps = {
   params: { [key: string]: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -18,7 +16,6 @@ export default function LoginPage({ searchParams }: LoginPageProps) {
         </h1>
         <form
           className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground"
-          action={login}
         >
           <label className="text-md" htmlFor="email">
             Email
