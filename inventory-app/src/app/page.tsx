@@ -1,10 +1,9 @@
-type LoginPageProps = {
-import type { PageProps } from 'next'; // Impor tipe PageProps
+import type { PageProps } from 'next';
 
 export default function LoginPage({ searchParams }: PageProps) {
-  const message = Array.isArray(searchParams.message)
+  const message = Array.isArray(searchParams?.message)
     ? searchParams.message.join(' ')
-    : searchParams.message;
+    : searchParams?.message;
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
